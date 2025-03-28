@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>{% block title %}
-    Base Title{% endblock title %}
+    Base Title
+    {% endblock title %}
   </title>
 </head>
 <body>
@@ -13,6 +14,8 @@ Base Body!
 {% endblock body %}
 <footer>
   &copy; Django ToDo App
+  {% block footer %}
+  {% endblock %}
 </footer>
 </body>
 </html>
