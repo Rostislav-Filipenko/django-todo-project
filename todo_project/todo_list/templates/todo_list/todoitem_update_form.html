@@ -11,4 +11,10 @@
     {{ form.as_p }}
     <input type="submit" value="Update">
   </form>
+
+  <div>
+    <a href="{% url 'todo_list:detail' object.pk %}"
+    >Back to ToDo Item details
+    </a>
+  </div>
 {% endblock %}
