@@ -3,9 +3,9 @@ from django.http import (
 )
 from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
-from django.views.generic import TemplateView, ListView, DetailView, CreateView
+from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView
 
-from .forms import ToDoItemForm
+from .forms import ToDoItemCreateForm, ToDoItemUpdateForm
 from .models import ToDoItem
 
 def index_view(request: HttpRequest) -> HttpResponse:
@@ -34,8 +34,12 @@ class ToDoDetailView(DetailView):
 
 class ToDoItemCreateView(CreateView):
     model = ToDoItem
-    form_class = ToDoItemForm
+    form_class = ToDoItemCreateForm
     # fields = ("title", "description")
 
+class ToDoItemUpdateView(UpdateView):
+    model = ToDoItem
+    template_name_suffix = "_update_form"
+    form_class = ToDoItemUpdateForm
 
 
